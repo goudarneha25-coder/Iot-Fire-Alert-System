@@ -1,0 +1,29 @@
+// 🔥 REPLACE WITH YOUR OWN FIREBASE CONFIG
+var firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "fire-alert-d5570.firebaseapp.com",
+  databaseURL: "https://fire-alert-d5570-default-rtdb.firebaseio.com",
+  projectId: "fire-alert-d5570",
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Get Database Reference
+var database = firebase.database();
+
+// Read Gas Level
+database.ref("/gasLevel").on("value", function(snapshot) {
+  if (snapshot.exists()) {
+    document.getElementById("gasLevel").innerText = snapshot.val();
+  }
+});
+
+// Read Fire Status
+database.ref("/fireStatus").on("value", function(snapshot) {
+  if (snapshot.exists()) {
+    var status = snapshot.val();
+    document.getElementById("fireStatus").innerText =
+      status ? "🔥 FIRE DETECTED" : "✅ SAFE";
+  }
+});

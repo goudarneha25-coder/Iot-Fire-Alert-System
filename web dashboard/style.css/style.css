@@ -1,0 +1,24 @@
+body {
+  font-family: Arial;
+  text-align: center;
+  background-color: #f4f4f4;
+  padding-top: 50px;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+.card {
+  background: white;
+  margin: 20px auto;
+  padding: 20px;
+  width: 300px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+}
+
+#fireStatus {
+  font-weight: bold;
+  font-size: 18px;
+}
