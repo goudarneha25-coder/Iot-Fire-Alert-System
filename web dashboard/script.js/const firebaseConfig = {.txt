@@ -1,0 +1,19 @@
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "fire-alert-d5570.firebaseapp.com",
+  databaseURL: "https://fire-alert-d5570-default-rtdb.firebaseio.com",
+  projectId: "fire-alert-d5570",
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const database = firebase.database();
+
+database.ref("/gasLevel").on("value", (snapshot) => {
+  document.getElementById("gasLevel").innerText = snapshot.val();
+});
+
+database.ref("/fireStatus").on("value", (snapshot) => {
+  document.getElementById("fireStatus").innerText =
+    snapshot.val() ? "🔥 FIRE DETECTED" : "✅ SAFE";
+});
